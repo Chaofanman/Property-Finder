@@ -13,6 +13,22 @@ import{
 import Style from './Style.js';
 
 class SearchPage extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            searchString: 'London',
+            isLoading: false
+        };
+        this.onSearchTermChange = this.onSearchTermChange.bind(this);
+    }
+
+    onSearchTermChange(event){
+        console.log('onSearchTermChange');
+        this.setState({ searchString: event.nativeEvent.text });
+        console.log("current searchString: ", this.state.searchString);
+    }
+
+    
     render(){
         return(
             <View style={Style.searchContainer}>
@@ -25,7 +41,12 @@ class SearchPage extends Component{
                 </Text>
 
                 <View style={Style.flowRight}>
-                    <TextInput style={Style.searchInput} placeholder='Search via name or postal code' />
+                    <TextInput 
+                        style={Style.searchInput} 
+                        value={this.state.searchString} 
+                        placeholder='Search via name or postal code' 
+                        onChange={this.onSearchTermChange}
+                        />
                     <TouchableHighlight style={Style.button} underlayColor='#99d9f4'>
                         <Text style={Style.buttonText}> Go </Text>
                     </TouchableHighlight>
