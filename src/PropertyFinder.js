@@ -7,16 +7,25 @@
 
 import React, { Component } from 'react';
 import {
-    View,
     Text,
+    NavigatorIOS,
     AppRegistry
 } from 'react-native';
-import Style from './Style.js'
+import Style from './Style.js';
+import HelloWorld from './HelloWorld.js';
+import SearchPage from './SearchPage.js';
 
 class PropertyFinder extends Component{
     render(){
+        //constructs a navigation controller setting
+        //HelloWorld as the initialRoute
         return(
-            <Text style={Style.text}> Hello World! </Text>
+            <NavigatorIOS 
+                style={Style.container}
+                initialRoute={{
+                    title: 'Property Finder',
+                    component: SearchPage
+                }} />
         );
     }
 }
