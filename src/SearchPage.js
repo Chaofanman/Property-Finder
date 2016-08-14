@@ -56,6 +56,7 @@ class SearchPage extends Component{
             .then((json) => this._handleResponse(json.response))
             .catch((error) => {
                 console.log("ERROR: ", error);
+                alert(error);
                 this.setState({
                     isLoading: false,
                     message: 'ERROR: ' + error
