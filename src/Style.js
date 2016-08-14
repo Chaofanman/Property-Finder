@@ -28,11 +28,13 @@ var Style = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'stretch'
     },
+
     buttonText: {
         fontSize: 18,
         color: 'white',
         alignSelf: 'center'
     },
+
     button: {
         height: 36,
         flex: 1,
@@ -45,6 +47,7 @@ var Style = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center'
     },
+
     searchInput: {
         height: 36,
         padding: 4,
@@ -55,6 +58,11 @@ var Style = StyleSheet.create({
         borderColor: '#48BBEC',
         borderRadius: 8,
         color: '#48BBEC'
+    },
+
+    image: {
+        width: 217,
+        height: 138
     }
 });
 

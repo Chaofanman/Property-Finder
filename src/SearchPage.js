@@ -10,7 +10,7 @@ import{
     ActivityIndicatorIOS,
     Image
 } from 'react-native';
-import Style from './Style.js'
+import Style from './Style.js';
 
 class SearchPage extends Component{
     render(){
@@ -35,6 +35,7 @@ class SearchPage extends Component{
                     <Text style={Style.buttonText}> Location </Text>
                 </TouchableHighlight>
 
+                <Image source={require('../Resources/house.png')} style={Style.image}/>
             </View>
         );
     }
