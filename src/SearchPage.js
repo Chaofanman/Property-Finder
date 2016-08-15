@@ -41,6 +41,7 @@ class SearchPage extends Component{
         };
         this.onSearchTermChange = this.onSearchTermChange.bind(this);
         this.onSearchPressed = this.onSearchPressed.bind(this);
+        this.onLocationPressed = this.onLocationPressed.bind(this); 
     }
 
     onSearchTermChange(event){
@@ -68,6 +69,25 @@ class SearchPage extends Component{
     onSearchPressed(){
         var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
         this._executeQuery(query);
+    }
+
+    onLocationPressed(){
+        navigator.geolocation.getCurrentPosition(
+            location => {
+                //gets current location
+                var search = location.coords.latitude + ', ' +  location.coords.longitude;
+                this.setState({ searchString: search });
+                //makes current location the search value
+                var query = urlForQueryAndPage('centre_point', search, 1);
+                this._executeQuery(query);
+            },
+            error =>{
+                this.setState({
+                    message: 'There was a problem with obtaining your location: ' + error
+                });
+                console.log("ERROR OBTAINING: ", error);
+            }
+        )
     }
 
     _handleResponse(response){
@@ -117,8 +137,11 @@ class SearchPage extends Component{
                     </TouchableHighlight>
                 </View>
 
-                <TouchableHighlight style={Style.button} underlayColor='#99d9f4'>
-                    <Text style={Style.buttonText}> Location </Text>
+                <TouchableHighlight 
+                    style={Style.button} 
+                    underlayColor='#99d9f4'
+                    onPress={this.onLocationPressed}>
+                        <Text style={Style.buttonText}> Location </Text>
                 </TouchableHighlight>
 
                 <Image source={require('../Resources/house.png')} style={Style.image}/>
