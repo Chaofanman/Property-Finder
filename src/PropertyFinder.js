@@ -12,7 +12,6 @@ import {
     AppRegistry
 } from 'react-native';
 import Style from './Style.js';
-import HelloWorld from './HelloWorld.js';
 import SearchPage from './SearchPage.js';
 
 class PropertyFinder extends Component{

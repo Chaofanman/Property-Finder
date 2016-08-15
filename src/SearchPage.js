@@ -11,6 +11,7 @@ import{
     Image
 } from 'react-native';
 import Style from './Style.js';
+import SearchResults from './SearchResults.js';
 
 function urlForQueryAndPage(key, value, pageNumber){
     var data = {
@@ -74,9 +75,14 @@ class SearchPage extends Component{
             isLoading: false,
             message: ''
         });
-        // console.log("HANDLE_RESPONSE: ", response);
+        //navigates to SearchResults passing the listings from api request
+        //using push ensures results are pushed to navigation stack
         if (response.application_response_code.substr(0, 1) === '1'){
-            console.log('Properties found: ' + response.listings);
+            this.props.navigator.push({
+                title: 'Results',
+                component: SearchResults,
+                passProps: { listings: response.listings }
+            })
         } else {
             this.setState({ message: 'Location not recognized' });
         }

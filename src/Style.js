@@ -63,6 +63,63 @@ var Style = StyleSheet.create({
     image: {
         width: 217,
         height: 138
+    },
+
+    thumb: {
+        width: 80,
+        height: 80,
+        marginRight: 10
+    },
+    textContainer: {
+        flex: 1
+    },
+    separator: {
+        height: 1,
+        backgroundColor: '#dddddd'
+    },
+    price: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: '#48BBEC'
+    },
+    title: {
+        fontSize: 20,
+        color: '#656565'
+    },
+    rowContainer: {
+        flexDirection: 'row',
+        padding: 10
+    },
+
+    detailContainer: {
+        marginTop: 65
+    },
+    detailHeading: {
+        backgroundColor: '#F8F8F8',
+    },
+    detailSeparator: {
+        height: 1,
+        backgroundColor: '#DDDDDD'
+    },
+    detailImage: {
+        width: 400,
+        height: 300
+    },
+    detailPrice: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        margin: 5,
+        color: '#48BBEC'
+    },
+    detailTitle: {
+        fontSize: 20,
+        margin: 5,
+        color: '#656565'
+    },
+    detailDescription: {
+        fontSize: 18,
+        margin: 5,
+        color: '#656565'
     }
 });
 
