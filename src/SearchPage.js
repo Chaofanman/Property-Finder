@@ -74,9 +74,9 @@ class SearchPage extends Component{
             isLoading: false,
             message: ''
         });
-        console.log("HANDLE_RESPONSE: ", response);
-        if (response.application_response_code(0, 1) === 1){
-            console.log("Properties found: " + response.listings.length);
+        // console.log("HANDLE_RESPONSE: ", response);
+        if (response.application_response_code.substr(0, 1) === '1'){
+            console.log('Properties found: ' + response.listings);
         } else {
             this.setState({ message: 'Location not recognized' });
         }
